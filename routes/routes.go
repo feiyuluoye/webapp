@@ -19,4 +19,14 @@ func SetupRoutes(r *gin.Engine) {
 	// 注册路由
 	r.POST("/login", authController.Login)
 	r.POST("/register", authController.Register)
+	{
+		spreadRepo := repositories.NewTarotSpreadRepository()
+		spreadController := controllers.NewTarotSpreadController(spreadRepo)
+
+		r.POST("/spreads", spreadController.CreateSpread)
+		r.GET("/spreads/:id", spreadController.GetSpread)
+		r.PUT("/spreads/:id", spreadController.UpdateSpread)
+		r.DELETE("/spreads/:id", spreadController.DeleteSpread)
+		r.GET("/spreads", spreadController.ListSpreads)
+	}
 }

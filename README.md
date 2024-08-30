@@ -4,7 +4,7 @@
 ### 程序启动
 ```shell
 
-go mod init "tarot-app"
+go mod initial "tarot-app"
 
 go mod tidy
 

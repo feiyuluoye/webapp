@@ -22,7 +22,7 @@ func InitDB() *gorm.DB {
 
 	// 自动迁移
 	db.AutoMigrate(&models.User{})
-	db.AutoMigrate(&models.TarotCard{})
+	db.AutoMigrate(&models.TarotCard{}, &models.TarotSpread{})
 
 	DB = db
 	return db
